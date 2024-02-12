@@ -18,7 +18,7 @@ def heronianTriangle():
                 s = (a+b+c)/2
                 try:
                     area = math.sqrt((s*(s-a)*(s-b)*(s-c)))
-                    if area.is_integer() and area<2000:
+                    if area.is_integer() and area<2000 and area>0:
                         print(a,b,c,area)
                         count+=1
                 except ValueError as e:
