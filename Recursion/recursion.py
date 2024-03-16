@@ -47,14 +47,13 @@ print("func4 ",end4 - start4)
 
 start5 = time.time()
 def fib5(n):
-    v1, v2, v3 = 1, 1, 0
-    c=bin(n)    # initialise a matrix [[1,1],[1,0]]
+    v1, v2, v3 = 1, 1, 0    # initialise a matrix [[1,1],[1,0]]
     for rec in bin(n)[3:]:  # perform fast exponentiation of the matrix (quickly raise it to the nth power)
         calc = v2*v2
         v1, v2, v3 = v1*v1+calc, (v1+v3)*v2, calc+v3*v3
         if rec=='1':    v1, v2, v3 = v1+v2, v1, v2
     return v2
-print(fib5(10))
+print(fib5(9000))
 end5 = time.time()
 print("func5 ",end5 - start5)
 
