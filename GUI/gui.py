@@ -8,7 +8,7 @@ main_window.title('Profile Entry')
 main_window.geometry('500x300')
 
 #create image
-image1 = tk.PhotoImage(file = 'profile.gif')
+image1 = tk.PhotoImage(file = 'GUI/profile.gif')
 #returns new photo image based on image1 by factor of x,y pixels
 small_image = image1.subsample(4,4)
 
@@ -52,10 +52,10 @@ def get_checked():
 
 
 #new way to make drop down menu
-gender.menu.add_checkbutton(label='Male',variable=item1,command = get_checked)
-gender.menu.add_checkbutton(label='Female',variable=item2,command = get_checked)
-gender.menu.add_checkbutton(label='Other',variable=item3,command = get_checked)
-gender.menu.add_checkbutton(label='Rather Not Say',variable=item1,command = get_checked)
+# gender.menu.add_checkbutton(label='Male',variable=item1,command = get_checked)
+# gender.menu.add_checkbutton(label='Female',variable=item2,command = get_checked)
+# gender.menu.add_checkbutton(label='Other',variable=item3,command = get_checked)
+# gender.menu.add_checkbutton(label='Rather Not Say',variable=item1,command = get_checked)
 
 #add items to menu
 gender.menu=tk.Menu(gender,tearoff=0)
