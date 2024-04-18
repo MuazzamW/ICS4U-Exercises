@@ -66,18 +66,15 @@ class pass_lookup(Window):
 
     def consoleLookup(self):
        user = ''
-
-       def attempt(user):
-        try:
-            password = self.__passLoader.getPassword(user)
-            print(f'The password for {user} is {password}')
-        except ValueError:
-            print("User not found!")
-            return ValueError
-        
+       user = input('Enter a user name or type quit to exit: ')
        while user!='quit':
+          
+          password = self.__passLoader.getPassword(user)
+          if password != ValueError:
+              print(f'The password for {user} is {password}')
+          else:
+              print("User not found!")
           user = input('Enter a user name or type quit to exit: ')
-          self.attempt(user)
 
         
 

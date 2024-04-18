@@ -13,7 +13,6 @@ class passLoader:
             index = self.__search.index(user)
             return self.__passwords[index][1]
         except ValueError:
-            print('User not found')
             return ValueError
 if __name__ == "__main__":
     passLoader()
