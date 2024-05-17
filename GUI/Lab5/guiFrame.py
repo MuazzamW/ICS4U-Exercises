@@ -27,6 +27,7 @@ class pass_lookup(Window):
       #declare button
       self.loginButton = tk.Button(self, text="login", command=lambda: self.check_login(self.userName.get(), self.passWord.get()))
       self.passLookupButton = tk.Button(self, text="Pass Lookup", command = self.consoleLookup)
+      self.searchByLastName = tk.Button(self, text="Search by Last Name", command = self.searchByLastName)
 
       #grid layout
       self.userLabel.grid(row=0, column=0)
@@ -37,7 +38,37 @@ class pass_lookup(Window):
       
       self.loginButton.grid(row=2, column=0)
       self.passLookupButton.grid(row=3, column=0)
+      self.searchByLastName.grid(row=4, column=0)
 
+    def searchByLastName(self):
+        #open new window
+        search = tk.Tk()
+        search.title('Search')
+
+        #declare labels
+        searchLabel = tk.Label(search, text='Enter the last name to search for')
+        searchLabel.pack()
+
+        #declare entry
+        searchEntry = tk.Entry(search, width=10)
+        searchEntry.pack()
+
+        #declare button
+        searchButton = tk.Button(search, text='Search', command=lambda: self.search(searchEntry.get()))
+        searchButton.pack()
+
+        search.mainloop()
+
+    def search(self, lastName):
+        #open new window
+        result = tk.Tk()
+        result.title('Result')
+
+        #declare label
+        resultLabel = tk.Label(result, text=self.__passLoader.search(lastName))
+        resultLabel.pack()
+
+        result.mainloop()
     def check_login(self, user, password):
         if self.__passLoader.getPassword(user) == password:
             print('Login Successful')
@@ -76,8 +107,10 @@ class pass_lookup(Window):
               print("User not found!")
           user = input('Enter a user name or type quit to exit: ')
 
-        
+    def getNames(self):
+        return self.__passLoader.associateNames()
 
 if __name__ == "__main__":
     app = pass_lookup()
+    print(app.getNames())
     app.mainloop()
