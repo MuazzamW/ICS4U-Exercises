@@ -66,9 +66,11 @@ class pass_lookup(Window):
 
         #declare label
         resultLabel = tk.Label(result, text=self.__passLoader.search(lastName))
+        print(self.__passLoader.search(lastName))
         resultLabel.pack()
 
         result.mainloop()
+
     def check_login(self, user, password):
         if self.__passLoader.getPassword(user) == password:
             print('Login Successful')
